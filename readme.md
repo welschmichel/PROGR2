@@ -11,10 +11,4 @@ Diese Erinnerungen / Reminder bestehen aus einen Titel (optional Text) und einem
 Reicht die Zeit wird die Applikation um weitere Funktionen / Elemente ergänzt.
 
 **Workflow**
-![Workflow](wf.png)
-
-**Dateneingabe**
-
-**Datenverarbeitung/Speicherung**
-
-**Datenausgabe**
+![Workflow](https://github.com/welschmichel/PROGR2/blob/master/workflow/wf.png)
