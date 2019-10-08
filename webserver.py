@@ -18,7 +18,9 @@ def welcome():
 def input():
 	if request.method=='POST':
 		vorname=request.form['vorname']
-		return render_template("input.html", vorname=vorname)
+		date=request.form['date']
+		vorname = vorname.capitalize()
+		return render_template("input.html", vorname=vorname, date=date)
 	else:
 		return render_template("input.html")
 

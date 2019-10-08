@@ -3,15 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title>Flask Input-Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
-  <body>
+  <body style="margin:20px;">
 
+<h1>reMINDer</h1>
 <form action="{{ url_for('input') }}" method="POST">
-	<input type="text" name="vorname" placeholder="Vorname">
-	<input type="submit" value="Send">
+	<input class="form-control" type="text" name="vorname" placeholder="Deine Notiz">
+	​<input class="form-control" type="date" name="date" value="2010-12-16;">
+	</br><input class="btn btn-outline-primary" type="submit" value="Speichern">
 </form>
-
-<p>{{vorname}}</p>
+</br>
+<h3><b>Deine Notiz: </b>{{vorname}}</h3> 
+<h3><b>Fällig am: </b>{{date}}</h3>
 
   </body>
 </html>
