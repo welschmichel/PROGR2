@@ -1,23 +1,20 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Flask Input-Form</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  </head>
+{% include "header.html" %}
+
   <body style="margin:20px;">
 
-<h1>reMINDer</h1>
 <form action="{{ url_for('input') }}" method="POST">
-	<input class="form-control" type="text" name="vorname" placeholder="Deine Notiz">
-	​<div class="input-group mb-3">
+	<input class="form-control" type="text" name="notiz" placeholder="Deine Notiz">
+	​
+  <!--
+  <div class="input-group mb-3">
   
   <select class="custom-select" id="inputGroupSelect01">
-    <option selected>Schule</option>
-    <option value="privat">Privat</option>
-    <option value="anderes">Anderes</option>
+    <option selected name="schule">Schule</option>
+    <option value="privat" name="privat">Privat</option>
+    <option value="anderes" name="anderes">Anderes</option>
       </select>
 </div>
+-->
 
 
   <input class="form-control" type="date" name="date" value="2010-12-16;">
@@ -29,9 +26,9 @@
 	</br><input class="btn btn-outline-primary" type="submit" value="Speichern">
 </form>
 </br>
-<h3><b>Deine Notiz: </b>{{vorname}}</h3> 
+<h3><b>Deine Notiz: </b>{{notiz}}</h3> 
 <h3><b>Fällig am: </b>{{day}} {{month}} {{year}}</h3></br>
-{{single_date}} --- 
+{{single_date}} --- {{schule}}
 
   </body>
 </html>

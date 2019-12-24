@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>reMINDer</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <!--Meta-Tags-->
+    <meta charset="utf-8" />
+    <meta name="Title" content="reMINDer" />
+    <meta name="author" content="Michel Welsch" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Stylesheet-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--Schrift Online abrufbar, falls nicht auf Computer vorhanden-->
+    <!--<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">-->
+
+</head>
+
+<body>
+    <h1>reMINDer</h1><h6>Michel Welsch</h6>
+    <hr>
+    <body style="margin:20px;">
+
+        <div class="container">
+    <div class="row">
+        <div class="col-md-4"><a href="{{ url_for('input') }}" type="button" class="btn btn-outline-primary btn-lg btn-block">Notiz speichern</a></div>
+        <div class="col-md-4"><a href="{{ url_for('input') }}" type="button" class="btn btn-outline-info btn-lg btn-block">Notizen einsehen</a></div>
+        <div class="col-md-4"><a href="{{ url_for('input') }}" type="button" class="btn btn-outline-danger btn-lg btn-block">Notizen löschen</a></div>
+    </div>
+    <div class="row"></div>
+</div>
+
+        
+
+
+<hr>
+</body>
+
+
+</body>
