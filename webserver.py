@@ -25,14 +25,10 @@ def input():
 		notiz=request.form['notiz']
 		date=request.form['date']
 		notiz = notiz.capitalize()
-
-
 		single_date = date.split("-")
-		year = single_date[0]
-		month = single_date[1]
-		day = single_date[2] + "."
+		
 
-		return render_template("input.html", notiz=notiz, date=date, single_date=single_date, day=day, month=month, year=year)
+		return render_template("input.html", notiz=notiz, date=date, single_date=single_date)
 	else:
 		return render_template("input.html")
 
@@ -41,7 +37,3 @@ if __name__ == "__main__":
     app.run(debug=True, port=5000)
 
 
-    def date_rechner():
-    	monate = {1:"januar", 2:"februar"}
-
-   
