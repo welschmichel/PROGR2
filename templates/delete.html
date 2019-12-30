@@ -1,0 +1,64 @@
+{% include "header.html" %}
+
+  <body style="margin:20px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+    <p><b>Wähle die ID der zu löschenden Notiz:</b></p>
+    <p>
+<!--       <div class="alert alert-success" role="alert">
+  Notiz erfolgreich gelöscht!
+</div> -->
+
+
+    </p>
+  </div>
+  <div class="col-sm-4">
+    <form action="{{ url_for('delete') }}" method="POST">
+  <input class="form-control" type="number" min="1" step="1" name="nummer" placeholder="ID" required>
+</div><div class="col-sm-2">
+  <input class="btn btn-outline-danger" type="submit" value="Löschen"></div></form>
+  </br></br>
+  <div class="col-sm-12">
+    {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success" role="alert">
+  {{ message }}
+</div>
+    
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+{% block body %}{% endblock %}
+  </div></div></br>
+
+    <!-- <iframe width='90%' height='500px' src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ9uD6F9JqGRDRIvgt7adTRGStC1PZaWvfb8Ddime6F1H3zCRcKTdPjjzyasYycd8skCCdJQbxIYCc3/pubhtml?gid=152787366&amp;single=true&amp;widget=true&amp;headers=false"></iframe> -->
+    
+    <div class="row">
+      <div class="col-sm-2">
+          {% for id in id_list %}
+          <p>{{id}}</p>
+          {% endfor %}
+        </div>
+        <div class="col-sm-4">
+          {% for note in notes_list %}
+          <p>{{note}}</p>
+          {% endfor %}
+        </div>
+        <div class="col-sm-2">
+          {% for date in date_list %}
+                <p>{{date}}</p>
+            {% endfor %}
+
+        </div>
+        <div class="col-sm-4">
+          {% for wer in wer_list %}
+                <p>{{wer}}</p>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+  </body>
+</html> 

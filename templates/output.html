@@ -1,0 +1,39 @@
+{% include "header.html" %}
+
+  <body style="margin:20px;">
+
+</br>
+
+
+
+<div class="container">
+  <p>Du kannst alle deine Notizen auch <a href={{gs_url}} target='_blank'><b>hier</b></a> runterladen: </p>
+
+      <div class="row">
+      <div class="col-sm-2">
+          {% for id in id_list %}
+          <p>{{id}}</p>
+          {% endfor %}
+        </div>
+        <div class="col-sm-4">
+          {% for note in notes_list %}
+          <p>{{note}}</p>
+          {% endfor %}
+        </div>
+        <div class="col-sm-2">
+          {% for date in date_list %}
+                <p>{{date}}</p>
+            {% endfor %}
+
+        </div>
+        <div class="col-sm-4">
+          {% for wer in wer_list %}
+                <p>{{wer}}</p>
+            {% endfor %}
+
+        </div>
+    </div>
+</div></div>
+
+  </body>
+</html> 

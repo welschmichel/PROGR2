@@ -2,32 +2,55 @@
 
   <body style="margin:20px;">
 
-<form action="{{ url_for('input') }}" method="POST">
-	<input class="form-control" type="text" name="notiz" placeholder="Deine Notiz">
-	​
-  <!--
-  <div class="input-group mb-3">
-  
-  <select class="custom-select" id="inputGroupSelect01">
-    <option selected name="schule">Schule</option>
-    <option value="privat" name="privat">Privat</option>
-    <option value="anderes" name="anderes">Anderes</option>
-      </select>
+    <div class="container">
+    <div class="row">
+        <div class="col-sm-5">
+          <form action="{{ url_for('input') }}" method="POST">
+        <input class="form-control" type="text" name="notiz" placeholder="Deine Notiz" maxlength="40" required>
+
+        </div>
+        
+        <div class="col-sm-3">
+          <input class="form-control" type="date" name="date" value="2010-12-16;" required>
+        </div>
+        
+        <div class="col-sm-3">
+          <input class="form-control" type="text" name="wer" placeholder="Verantwortlicher" maxlength="40" required>
+        </div>
+        
+        <div class="col-sm-1">
+          <input class="btn btn-outline-primary" type="submit" value="Speichern">
+        </div>
+        
+    </div>
+</br>
+<div class="row">
+        <div class="col-sm-12">
+          {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success" role="alert">
+  {{ message }}
 </div>
--->
+{% endfor %}
+  {% endif %}
+{% endwith %}
+{% block body %}{% endblock %}
+</div>
+<div class="col-sm-12">
+<h6><b>Deine Notiz: </b>{{notiz}}</h6> 
+<h6><b>Fällig am: </b>{{date}}</h6>
+<h6><b>Verantwortlicher: </b>{{wer}}</h6></br>
+</div></div>
+
+</div>
 
 
-  <input class="form-control" type="date" name="date" value="2010-12-16;">
 
-  
-
-
-
-	</br><input class="btn btn-outline-primary" type="submit" value="Speichern">
+	</br>
 </form>
 </br>
-<h3><b>Deine Notiz: </b>{{notiz}}</h3> 
-<h3><b>Fällig am: </b>{{single_date}}</h3></br>
+
 
 
   </body>
