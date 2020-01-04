@@ -8,7 +8,7 @@ import webbrowser
 
 
 app = Flask(__name__)
-app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+app.secret_key = b'_5#y2Ldnoisf(#"F4Q8z\n\xec]/'
 app.config["CACHE_TYPE"] = "null"
 
 
@@ -53,6 +53,7 @@ def input():
 		### --- START--- change cell-value 'E1' from str to int and ++ || Needed for placing the note in the right cell
 		val = int(val)
 		val = val + 1
+		print(val)
 
 		### create timestamp to save with the note || it's also an unique id for every note
 		ts = calendar.timegm(time.gmtime())
@@ -66,6 +67,9 @@ def input():
 		
 		### Get date from spreadsheet to display
 		date=worksheet.acell('C'+str(val)).value
+		### define max. possible notes || change value 'A200'
+		worksheet.update_acell('E1', '=ANZAHL2(A1:A200)')
+		
 
 		### Return input.html and send data to input.html
 		return render_template("input.html", len=len, notiz=notiz, date=date, wer=wer)
