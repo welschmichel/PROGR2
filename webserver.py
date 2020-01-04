@@ -29,7 +29,7 @@ def input():
 		### --- START--- Google Spreadsheet Authentification
 		scope = ['https://www.googleapis.com/auth/drive']
 		#Name des credential-Files
-		credentials = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
+		credentials = ServiceAccountCredentials.from_json_keyfile_name('static/client_secret.json', scope)
 		gc = gspread.authorize(credentials)
 		### --- END--- Google Spreadsheet Authentification
 		### --- START--- open Google Spreadsheet & Counter-Value
@@ -74,7 +74,7 @@ def output():
 	### Google Spreadsheet URL
 	gs_url = 'https://docs.google.com/spreadsheets/d/1RpGohe8TQ1XF_vHehBqiY8qHROXgtlVR6ozk9we6Blk/edit?usp=sharing'
 	#Name des credential-Files
-	credentials = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
+	credentials = ServiceAccountCredentials.from_json_keyfile_name('static/client_secret.json', scope)
 	gc = gspread.authorize(credentials)
 	### --- END--- Google Spreadsheet Authentification
 	### --- START--- open Google Spreadsheet & Counter-Value
@@ -102,7 +102,7 @@ def delete():
 		### --- START--- Google Spreadsheet Authentification
 		scope = ['https://www.googleapis.com/auth/drive']
 		#Name des credential-Files
-		credentials = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
+		credentials = ServiceAccountCredentials.from_json_keyfile_name('static/client_secret.json', scope)
 		gc = gspread.authorize(credentials)
 		### --- END--- Google Spreadsheet Authentification
 		### --- START--- open Google Spreadsheet & Counter-Value
@@ -131,7 +131,7 @@ def delete():
 		### --- START--- Google Spreadsheet Authentification
 		scope = ['https://www.googleapis.com/auth/drive']
 		#Name des credential-Files
-		credentials = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
+		credentials = ServiceAccountCredentials.from_json_keyfile_name('static/client_secret.json', scope)
 		gc = gspread.authorize(credentials)
 		### --- END--- Google Spreadsheet Authentification
 		### --- START--- open Google Spreadsheet & Counter-Value
@@ -155,7 +155,7 @@ def output2():
 	### Google Spreadsheet URL
 	gs_url = 'https://docs.google.com/spreadsheets/d/1RpGohe8TQ1XF_vHehBqiY8qHROXgtlVR6ozk9we6Blk/edit?usp=sharing'
 	#Name des credential-Files
-	credentials = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
+	credentials = ServiceAccountCredentials.from_json_keyfile_name('static/client_secret.json', scope)
 	gc = gspread.authorize(credentials)
 	### --- END--- Google Spreadsheet Authentification
 	### --- START--- open Google Spreadsheet & Counter-Value
@@ -188,9 +188,43 @@ def output2():
 	return render_template("timeline.html", date_difference=date_difference, notes_list=notes_list, date_list=date_list, wer_list=wer_list, id_list=id_list, gs_url=gs_url)
 
 
+@app.route('/kalender', methods=["POST", "GET"])
+def termin_speichern():
+	# file = open('kalendereintrag.ics', 'w')
+	# file.write('BEGIN:VCALENDAR\n')
+	# file.write('VERSION:2.0 \n')
+	# file.write('PROID:Michel Welsch\n')
+	# file.write('METHOD:REQUEST\n')
+	# file.write('BEGIN:VEVENT\n')
+	# file.write('UID:TEST\n')
+	# file.write('LOCATION:unknow\n')
+	# file.write('SUMMARY:Titel des Termins\n')
+	# file.write('DESCRIPTION:Kalendereintrag erstellt aus der WebApp\n')
+	# file.write('CLASS:PRIVATE\n')
+	# file.write('DTSTART:20191231\n')
+	# file.write('DTEND:20191231\n')
+	# file.write('END:VEVENT\n')
+	# file.write('END:VCALENDAR\n')
+	# file.close()
 
 
+	return render_template('header.html')
 
+
+# BEGIN:VCALENDAR
+# VERSION:2.0 
+# PROID:Michel Welsch
+# METHOD:REQUEST
+# BEGIN:VEVENT
+# UID:TEST
+# LOCATION:unknow
+# SUMMARY:Titel des Termins
+# DESCRIPTION:Kalendereintrag erstellt aus der WebApp
+# CLASS:PRIVATE
+# DTSTART:20191231
+# DTEND:20191231
+# END:VEVENT
+# END:VCALENDAR
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
