@@ -33,32 +33,19 @@
 {% block body %}{% endblock %}
   </div></div></br>
 
-    <!-- <iframe width='90%' height='500px' src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ9uD6F9JqGRDRIvgt7adTRGStC1PZaWvfb8Ddime6F1H3zCRcKTdPjjzyasYycd8skCCdJQbxIYCc3/pubhtml?gid=152787366&amp;single=true&amp;widget=true&amp;headers=false"></iframe> -->
-    
-    <div class="row">
-      <div class="col-sm-2">
-          {% for id in id_list %}
-          <p>{{id}}</p>
-          {% endfor %}
-        </div>
-        <div class="col-sm-4">
-          {% for note in notes_list %}
-          <p>{{note}}</p>
-          {% endfor %}
-        </div>
-        <div class="col-sm-2">
-          {% for date in date_list %}
-                <p>{{date}}</p>
-            {% endfor %}
 
-        </div>
-        <div class="col-sm-4">
-          {% for wer in wer_list %}
-                <p>{{wer}}</p>
-            {% endfor %}
-
-        </div>
-    </div>
+<table class="table table-hover">
+ <tbody>
+  <tr style="font-weight:bold;">
+    {% for (id, note, date, wer) in zip(id_list, notes_list, date_list, wer_list) %}
+    <td>{{id}}</td>
+    <td>{{note}}</td>
+    <td>{{date}}</td>
+    <td>{{wer}}</td>
+  </tr>
+  {% endfor %}
+ </tbody>
+</table>
 </div>
   </body>
 </html> 

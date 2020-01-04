@@ -38,10 +38,11 @@
 {% block body %}{% endblock %}
 </div>
 <div class="col-sm-12">
+  {% if len(notiz)!=0 %}
 <h6><b>Deine Notiz: </b>{{notiz}}</h6> 
 <h6><b>Fällig am: </b>{{date}}</h6>
 <h6><b>Verantwortlicher: </b>{{wer}}</h6></br>
-</div></div>
+</div></div>{% endif %}
 
 </div>
 
