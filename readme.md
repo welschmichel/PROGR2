@@ -18,8 +18,9 @@ Die Webapplikation soll dem Anwender ermöglichen, seine Erinnerung in textliche
  - Das Spreadsheet ist für alle zugänglich (read-only).
  - Die Notiz kann aus max. 40 Zeichen bestehen.
  - Die maximale Anzahl Notizen beträgt 200.
- - Die maximale Anzahl Notizen kann auf Zeile 71 in webserver.py `worksheet.update_acell('E1', '=ANZAHL2(A1:A200)')` geändert werden. 
- - Die Applikation funktioniert nur, wenn Google Drive verfügbar ist (Offline, Firewall etc.). 
+ - Die maximale Anzahl Notizen kann auf Zeile 33 und 50 in libs/gapi.py `worksheet.update_acell('E1', '=ANZAHL2(A1:A200)')` geändert werden. 
+ - Die Applikation funktioniert nur, wenn Google Drive verfügbar ist (Offline, Firewall etc.).
+ - Die Applikation bezieht bootstrap über das CDN. Falls das CDN nicht erreichbar ist -> Darstellung mangelhaft.
 
 ## Workflow
 
