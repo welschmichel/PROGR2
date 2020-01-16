@@ -1,27 +1,26 @@
 {% include "header.html" %}
 
-  <body style="margin:20px;">
-
-    <div class="container">
+<div class="container">
+      <div class="row">
+        <div class="col-sm">
+      <p><b>Erfasse hier deine Notiz:</b></p>
+</div>
+      </div>
     <div class="row">
-        <div class="col-sm-5">
-          <form action="{{ url_for('input') }}" method="POST">
+      <div class="col-sm-5">
+        <form action="{{ url_for('input') }}" method="POST">
         <input class="form-control" type="text" name="notiz" placeholder="Deine Notiz" maxlength="40" required>
-
-        </div>
-        
-        <div class="col-sm-3">
-          <input class="form-control" type="date" name="date" value="2010-12-16;" max="2999-12-31" required>
-        </div>
-        
-        <div class="col-sm-3">
-          <input class="form-control" type="text" name="wer" placeholder="Verantwortlicher" maxlength="40" required>
-        </div>
-        
-        <div class="col-sm-1">
-          <input class="btn btn-outline-primary" type="submit" value="Speichern">
-        </div>
-        
+      </div>        
+      <div class="col-sm-2">
+        <input class="form-control" type="date" name="date" value="2010-12-16;" max="2999-12-31" required>
+      </div>
+      <div class="col-sm-3">
+        <input class="form-control" type="text" name="wer" placeholder="Verantwortlicher" maxlength="40" required>
+      </div>
+      <div class="col-sm-2">
+        <input class="btn btn-outline-primary" type="submit" value="Speichern">
+      </div>
+      </form>
     </div>
 </br>
 <div class="row">
@@ -39,10 +38,11 @@
   </div>
   <div class="col-sm-12">
   {% if len(notiz)!=0 %}
+  <div class="alert alert-secondary" role="alert">
     <h6><b>Deine Notiz: </b>{{notiz}}</h6> 
     <h6><b>Fällig am: </b>{{date}}</h6>
-    <h6><b>Verantwortlicher: </b>{{wer}}</h6></br>
-  </div>
+    <h6><b>Verantwortlicher: </b>{{wer}}</h6>
+  </div></div>
 </div>
   {% endif %}
 	</br>

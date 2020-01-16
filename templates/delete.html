@@ -1,51 +1,41 @@
 {% include "header.html" %}
 
-  <body style="margin:20px;">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-4">
-    <p><b>Wähle die ID der zu löschenden Notiz:</b></p>
-    <p>
-<!--       <div class="alert alert-success" role="alert">
-  Notiz erfolgreich gelöscht!
-</div> -->
 
-
-    </p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      <p><b>ID der Notiz eingeben:</b></p>
   </div>
-  <div class="col-sm-4">
-    <form action="{{ url_for('delete') }}" method="POST">
-  <input class="form-control" type="number" min="1" step="1" name="nummer" placeholder="ID" required>
-</div><div class="col-sm-2">
-  <input class="btn btn-outline-danger" type="submit" value="Löschen"></div></form>
-  </br></br>
-  <div class="col-sm-12">
-    {% with messages = get_flashed_messages() %}
-  {% if messages %}
-    {% for message in messages %}
-    <div class="alert alert-success" role="alert">
-  {{ message }}
-</div>
-    
-    {% endfor %}
-  {% endif %}
-{% endwith %}
-{% block body %}{% endblock %}
-  </div></div></br>
-
-
+    <div class="col-sm-3">
+      <form action="{{ url_for('delete') }}" method="POST">
+        <input class="form-control" type="number" min="1000000000" step="1" name="nummer" max="9999999999" placeholder="ID" required>
+    </div>
+    <div class="col-sm-2">
+      <input class="btn btn-outline-danger" type="submit" value="Löschen">
+    </div>
+      </form>
+      <br><br>
+    <div class="col-sm-12">
+    {% if len(message)==20 %}
+    <div class="alert alert-danger" role="alert">{{message}}</div>
+    {% elif len(message)==37 %}
+    <div class="alert alert-success" role="alert">{{message}}</div>
+    {% endif %}
+    </div>
+  </div>
+  <br>
 <table class="table table-hover">
  <tbody>
   <tr style="font-weight:bold;">
     {% for (id, note, date, wer) in zip(id_list, notes_list, date_list, wer_list) %}
-    <td>{{id}}</td>
-    <td>{{note}}</td>
-    <td>{{date}}</td>
-    <td>{{wer}}</td>
+      <td>{{id}}</td>
+      <td>{{note}}</td>
+      <td>{{date}}</td>
+      <td>{{wer}}</td>
   </tr>
-  {% endfor %}
+    {% endfor %}
  </tbody>
 </table>
 </div>
-  </body>
+</body>
 </html> 

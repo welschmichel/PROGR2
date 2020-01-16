@@ -1,27 +1,20 @@
 {% include "header.html" %}
 
-  <body style="margin:20px;">
-
-<br>
-
-
-
 <div class="container">
   <p>Du kannst alle deine Notizen auch <a href={{gs_url}} target='_blank'><b>hier</b></a> runterladen: </p>
-
-<table class="table table-hover">
- <tbody>
-  <tr style="font-weight:bold;">
-  {% for (id, note, date, wer) in zip(id_list, notes_list, date_list, wer_list) %}
-    <td>{{id}}</td> 
-    <td>{{note}}</td>
-    <td>{{date}}</td>
-    <td>{{wer}}</td>
-    </tr>
-  {% endfor %}
- </tbody>
-</table>
+  <table class="table table-hover">
+    <tbody>
+      <tr style="font-weight:bold;">
+        {% for (id, note, date, wer) in zip(id_list, notes_list, date_list, wer_list) %}
+          <td>{{id}}</td> 
+          <td>{{note}}</td>
+          <td>{{date}}</td>
+          <td>{{wer}}</td>
+      </tr>
+        {% endfor %}
+    </tbody>
+  </table>
 </div>
 
-  </body>
+</body>
 </html>
