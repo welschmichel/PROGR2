@@ -17,6 +17,8 @@ Die Webapplikation soll dem Anwender ermöglichen, seine Erinnerung in textliche
 
 Damit die Applikation verwendet werden kann, muss im Ordner /static eine Datei - `client_secret.json` - abgelegt werden. Diese Datei muss den Serviceaccount (Private Key, Client-ID etc.) enthalten, welche für den Zugriff auf das spreadsheet berechtigt ist.
 
+Um die Applikation zu starten, führe die Date `main.py` aus.
+
 
 ## Anleitung
 
