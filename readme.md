@@ -12,9 +12,8 @@ Die Webapplikation soll dem Anwender ermöglichen, seine Erinnerung in textliche
 
 `Python 3.7.3` / `Flask==1.1.1` / `Jinja2==2.10.1` / `gspread==3.1.0` / `oauth2client==4.1.3`
 - https://github.com/googleapis/oauth2client
-> pip install --upgrade oauth2client
 - https://github.com/burnash/gspread
-> pip install gspread
+> pip install gspread oauth2client
 
 Damit die Applikation verwendet werden kann, muss im Ordner /static eine Datei - `client_secret.json` - abgelegt werden. Diese Datei muss den Serviceaccount (Private Key, Client-ID etc.) enthalten, welche für den Zugriff auf das spreadsheet berechtigt ist.
 
