@@ -11,7 +11,7 @@ app = Flask(__name__)
 app.secret_key = b'_5#y2Ldnoisf(#"F4Q8z\n\xec]/'
 app.config["CACHE_TYPE"] = "null"
 
-
+print(' ---> Viel Spass beim Erfassen von Notizen... bitte lese zuerst die readme.md')
 
 # Master Route definiert und erste Ausgabe auf Website
 @app.route('/pulse')
@@ -46,17 +46,17 @@ def input():
 		date=request.form['date']
 		wer=request.form['wer']
 		
-
-		### Flash text - displayed if note added succesful 
-		flash('Die Notiz wurde erfolgreich gespeichert!')
-
 		### --- START--- change cell-value 'E1' from str to int and ++ || Needed for placing the note in the right cell
 		val = int(val)
 		val = val + 1
-		print(val)
 
 		### create timestamp to save with the note || it's also an unique id for every note
 		ts = calendar.timegm(time.gmtime())
+		ts = int(ts)
+				
+		### Flash text - displayed if note added succesful 
+		flash('Die Notiz wurde erfolgreich gespeichert!')
+
 
 		### --- START--- store the input-values in the spreadsheet
 		worksheet.update_acell('A'+str(val), ts)
@@ -67,7 +67,7 @@ def input():
 		
 		### Get date from spreadsheet to display
 		date=worksheet.acell('C'+str(val)).value
-		### define max. possible notes || change value 'A200'
+		### define max. possible notes || change value 'A200' for changing max possible notes
 		worksheet.update_acell('E1', '=ANZAHL2(A1:A200)')
 		
 
@@ -100,8 +100,7 @@ def output():
 
 	### return output.html and sending data to output.html
 	return render_template("output.html", zip=zip, notes_list=notes_list, date_list=date_list, wer_list=wer_list, id_list=id_list, gs_url=gs_url)
-
-
+	
 # Output-Site for displaying & deleting notes 
 @app.route('/delete', methods=["POST", "GET"])
 def delete():
@@ -209,8 +208,6 @@ def output2():
 	return render_template("timeline.html", zip=zip, date_difference=date_difference, notes_list=notes_list, date_list=date_list, wer_list=wer_list, id_list=id_list, gs_url=gs_url)
 
 
-
-
-
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
+

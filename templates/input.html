@@ -25,34 +25,29 @@
     </div>
 </br>
 <div class="row">
-        <div class="col-sm-12">
-          {% with messages = get_flashed_messages() %}
-  {% if messages %}
-    {% for message in messages %}
-    <div class="alert alert-success" role="alert">
-  {{ message }}
-</div>
-{% endfor %}
-  {% endif %}
-{% endwith %}
-{% block body %}{% endblock %}
-</div>
-<div class="col-sm-12">
+  <div class="col-sm-12">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-success" role="alert">
+        {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+    {% endwith %}
+    {% block body %}{% endblock %}
+  </div>
+  <div class="col-sm-12">
   {% if len(notiz)!=0 %}
-<h6><b>Deine Notiz: </b>{{notiz}}</h6> 
-<h6><b>Fällig am: </b>{{date}}</h6>
-<h6><b>Verantwortlicher: </b>{{wer}}</h6></br>
-</div></div>{% endif %}
-
+    <h6><b>Deine Notiz: </b>{{notiz}}</h6> 
+    <h6><b>Fällig am: </b>{{date}}</h6>
+    <h6><b>Verantwortlicher: </b>{{wer}}</h6></br>
+  </div>
 </div>
-
-
-
+  {% endif %}
 	</br>
 </form>
 </br>
-
-
 
   </body>
 </html>

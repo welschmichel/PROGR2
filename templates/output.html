@@ -2,7 +2,7 @@
 
   <body style="margin:20px;">
 
-</br>
+<br>
 
 
 
@@ -12,16 +12,16 @@
 <table class="table table-hover">
  <tbody>
   <tr style="font-weight:bold;">
-    {% for (id, note, date, wer) in zip(id_list, notes_list, date_list, wer_list) %}
-    <td>{{id}}</td>
+  {% for (id, note, date, wer) in zip(id_list, notes_list, date_list, wer_list) %}
+    <td>{{id}}</td> 
     <td>{{note}}</td>
     <td>{{date}}</td>
     <td>{{wer}}</td>
-  </tr>
+    </tr>
   {% endfor %}
  </tbody>
 </table>
 </div>
 
   </body>
-</html> 
+</html>
