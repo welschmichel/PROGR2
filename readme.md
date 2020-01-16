@@ -10,7 +10,8 @@ Die Webapplikation soll dem Anwender ermöglichen, seine Erinnerung in textliche
 
 ## Installation / Voraussetzungen
 
-`python` / `flask` / `jinja2` / `gspread` / `oauth2client`
+- `python` / `flask` / `jinja2` / `gspread` / `oauth2client`
+- Damit die Applikation verwendet werden kann, muss im Ordner /static eine Datei - `client_secret.json` - abgelegt werden. Diese Datei muss den Serviceaccount (Private Key, Client-ID etc.) enthalten, welche für den Zugriff auf das spreadsheet berechtigt ist.
 
 ## Anleitung
 
